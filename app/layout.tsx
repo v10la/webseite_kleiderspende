@@ -1,10 +1,14 @@
-import './globals.css';
-import Navbar from './components/Navbar';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import Navbar from "./components/Navbar";
 import Footer from './components/Footer';
 
-export const metadata = {
-  title: 'KleiderSpende',
-  description: 'Ihre Plattform für Kleiderspenden',
+const inter = Inter({ subsets: ["latin"] });
+
+export const metadata: Metadata = {
+  title: "KleiderSpende Hamburg",
+  description: "Helfen Sie Menschen in Not mit Ihrer Kleiderspende",
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -21,12 +25,12 @@ export const metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
-    <html lang="de" className="h-full">
-      <body className="flex flex-col min-h-screen bg-[#F4F1DE]">
+    <html lang="de" className="scroll-smooth">
+      <body className={`${inter.className} bg-[#F4F1DE] min-h-screen`}>
         <Navbar />
         <main className="flex-grow">
           {children}

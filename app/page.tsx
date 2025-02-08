@@ -5,23 +5,57 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-[#F4F1DE]">
       {/* Hero Section */}
-      <div className="max-w-4xl mx-auto py-8 sm:py-12 md:py-20 px-4">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 md:mb-8 text-center text-[#3D405B]">
-          Gemeinsam für nachhaltige Kleiderspenden
-        </h1>
-        <p className="text-lg sm:text-xl mb-8 sm:mb-10 md:mb-12 text-[#3D405B]/80 text-center max-w-2xl mx-auto">
-          Ihre Kleiderspende kann Menschen in Not helfen und zur Nachhaltigkeit beitragen.
-        </p>
-        <div className="text-center">
-          <Link 
-            href="/spenden"
-            className="inline-block bg-[#81B29A] text-white px-8 py-4 
-                     rounded-lg text-xl font-semibold
-                     hover:bg-[#81B29A]/80 transition-all duration-200
-                     transform hover:scale-105 shadow-lg hover:shadow-xl"
-          >
-            Registriere dich für eine Kleiderspende
-          </Link>
+      <div className="max-w-7xl mx-auto pt-32 sm:pt-36 md:pt-40 pb-12 sm:pb-16 md:pb-20 px-4">
+        <div className="max-w-5xl mx-auto">
+          <h1 className="flex flex-col items-center">
+            {/* First line - splits on small screens, one line on larger screens */}
+            <div className="flex flex-col md:flex-row md:items-center md:gap-4 mb-3 sm:mb-4">
+              <span className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-black
+                bg-gradient-to-r from-[#81B29A] via-[#81B29A]/90 to-[#81B29A]
+                text-transparent bg-clip-text
+                tracking-tight leading-[1.2]
+              ">
+                Gemeinsam für
+              </span>
+              <span className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-black
+                bg-gradient-to-r from-[#81B29A] via-[#81B29A]/90 to-[#81B29A]
+                text-transparent bg-clip-text
+                tracking-tight leading-[1.2]
+                relative
+                pb-4
+              ">
+                nachhaltige
+                <svg className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-40 sm:w-48 md:w-56 lg:w-64
+                  text-[#81B29A]/20" viewBox="0 0 100 8" preserveAspectRatio="none">
+                  <path d="M0,0 Q50,8 100,0" stroke="currentColor" strokeWidth="3" fill="none" />
+                </svg>
+              </span>
+            </div>
+            {/* Second line - always centered */}
+            <span className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl font-black
+              bg-gradient-to-r from-[#81B29A] via-[#81B29A]/90 to-[#81B29A]
+              text-transparent bg-clip-text
+              tracking-tight leading-[1.2]
+              mt-3 sm:mt-4
+            ">
+              Kleiderspenden
+            </span>
+          </h1>
+
+          <p className="text-lg sm:text-xl md:text-2xl mb-12 sm:mb-14 md:mb-16 text-[#3D405B]/80 text-center max-w-3xl mx-auto mt-12">
+            Ihre Kleiderspende kann Menschen in Not helfen und zur Nachhaltigkeit beitragen.
+          </p>
+          <div className="text-center">
+            <Link 
+              href="/spenden"
+              className="inline-block bg-[#81B29A] text-white px-10 py-5 
+                       rounded-lg text-xl font-semibold
+                       hover:bg-[#81B29A]/80 transition-all duration-200
+                       shadow-lg hover:shadow-xl"
+            >
+              Registriere dich für eine Kleiderspende
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -78,3 +112,4 @@ export default function Home() {
     </main>
   );
 }
+

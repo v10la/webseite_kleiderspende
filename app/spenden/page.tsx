@@ -17,7 +17,7 @@ export default function SpendenFormular() {
     name: '',
     email: '',
     telefon: '',
-    uebergabeart: 'geschaeftsstelle', // oder 'abholung'
+    uebergabeart: 'geschaeftsstelle',
     adresse: '',
     plz: '',
     kleiderart: '',
@@ -63,14 +63,15 @@ export default function SpendenFormular() {
         Kleiderspende Registrierung
       </h1>
       
-      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 bg-white/90 p-6 sm:p-8 rounded-lg shadow-lg border border-[#81B29A]/20">
+      <form onSubmit={handleSubmit} className="space-y-6 bg-white/90 p-6 sm:p-8 rounded-lg shadow-lg border border-[#81B29A]/20">
         {/* Persönliche Daten */}
-        <div className="grid sm:grid-cols-2 gap-4 sm:gap-6">
-          <div>
-            <label className="block text-sm font-medium mb-2 text-[#3D405B]">Name</label>
+        <div className="grid sm:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-[#3D405B]">Name</label>
             <input
               type="text"
-              className="w-full p-2 border rounded focus:ring-2 focus:ring-[#81B29A] focus:border-[#81B29A]
+              className="w-full min-h-[44px] sm:min-h-[36px] p-2 border rounded-lg
+                       focus:ring-2 focus:ring-[#81B29A] focus:border-[#81B29A]
                        bg-white text-[#3D405B]"
               value={formData.name}
               onChange={(e) => setFormData({...formData, name: e.target.value})}
@@ -78,11 +79,12 @@ export default function SpendenFormular() {
             />
           </div>
 
-          <div>
-            <label className="block text-sm font-medium mb-2 text-[#3D405B]">E-Mail</label>
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-[#3D405B]">E-Mail</label>
             <input
               type="email"
-              className="w-full p-2 border rounded focus:ring-2 focus:ring-[#81B29A] focus:border-[#81B29A]
+              className="w-full min-h-[44px] sm:min-h-[36px] p-2 border rounded-lg
+                       focus:ring-2 focus:ring-[#81B29A] focus:border-[#81B29A]
                        bg-white text-[#3D405B]"
               value={formData.email}
               onChange={(e) => setFormData({...formData, email: e.target.value})}
@@ -91,11 +93,12 @@ export default function SpendenFormular() {
           </div>
         </div>
 
-        <div>
-          <label className="block text-sm font-medium mb-2 text-[#3D405B]">Telefon</label>
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-[#3D405B]">Telefon</label>
           <input
             type="tel"
-            className="w-full p-2 border rounded focus:ring-2 focus:ring-[#81B29A] focus:border-[#81B29A]
+            className="w-full min-h-[44px] sm:min-h-[36px] p-2 border rounded-lg
+                     focus:ring-2 focus:ring-[#81B29A] focus:border-[#81B29A]
                      bg-white text-[#3D405B]"
             value={formData.telefon}
             onChange={(e) => setFormData({...formData, telefon: e.target.value})}
@@ -104,10 +107,10 @@ export default function SpendenFormular() {
         </div>
 
         {/* Übergabeart */}
-        <div>
+        <div className="space-y-2">
           <label className="block text-sm font-medium mb-2 text-[#3D405B]">Art der Übergabe</label>
-          <div className="flex space-x-6">
-            <label className="flex items-center p-3 border rounded-lg hover:bg-[#81B29A]/10 cursor-pointer transition-colors">
+          <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0">
+            <label className="flex-1 flex items-center p-4 border rounded-lg hover:bg-[#81B29A]/10 cursor-pointer transition-colors">
               <input
                 type="radio"
                 name="uebergabeart"
@@ -118,7 +121,7 @@ export default function SpendenFormular() {
               />
               <span className="text-[#3D405B]">Übergabe an der Geschäftsstelle</span>
             </label>
-            <label className="flex items-center p-3 border rounded-lg hover:bg-[#81B29A]/10 cursor-pointer transition-colors">
+            <label className="flex-1 flex items-center p-4 border rounded-lg hover:bg-[#81B29A]/10 cursor-pointer transition-colors">
               <input
                 type="radio"
                 name="uebergabeart"
@@ -135,23 +138,24 @@ export default function SpendenFormular() {
         {/* Adresse nur bei Abholung */}
         {formData.uebergabeart === 'abholung' && (
           <div className="space-y-4">
-            <div>
-              <label className="block text-sm font-medium mb-2 text-[#3D405B]">Abholadresse</label>
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-[#3D405B]">Abholadresse</label>
               <textarea
-                className="w-full p-2 border rounded focus:ring-2 focus:ring-[#81B29A] focus:border-[#81B29A]
+                className="w-full min-h-[88px] p-2 border rounded-lg
+                         focus:ring-2 focus:ring-[#81B29A] focus:border-[#81B29A]
                          bg-white text-[#3D405B]"
-                rows={3}
                 value={formData.adresse}
                 onChange={(e) => setFormData({...formData, adresse: e.target.value})}
                 required
               />
             </div>
-            <div>
-              <label className="block text-sm font-medium mb-2 text-[#3D405B]">Postleitzahl</label>
+            <div className="space-y-2">
+              <label className="block text-sm font-medium text-[#3D405B]">Postleitzahl</label>
               <input
                 type="text"
                 pattern="[0-9]{5}"
-                className="w-full p-2 border rounded focus:ring-2 focus:ring-[#81B29A] focus:border-[#81B29A]
+                className="w-full min-h-[44px] sm:min-h-[36px] p-2 border rounded-lg
+                         focus:ring-2 focus:ring-[#81B29A] focus:border-[#81B29A]
                          bg-white text-[#3D405B]"
                 value={formData.plz}
                 onChange={(e) => {
@@ -170,10 +174,11 @@ export default function SpendenFormular() {
         )}
 
         {/* Art der Kleidung */}
-        <div>
-          <label className="block text-sm font-medium mb-2 text-[#3D405B]">Art der Kleidung</label>
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-[#3D405B]">Art der Kleidung</label>
           <select
-            className="w-full p-2 border rounded focus:ring-2 focus:ring-[#81B29A] focus:border-[#81B29A]
+            className="w-full min-h-[44px] sm:min-h-[36px] p-2 border rounded-lg
+                     focus:ring-2 focus:ring-[#81B29A] focus:border-[#81B29A]
                      bg-white text-[#3D405B]"
             value={formData.kleiderart}
             onChange={(e) => setFormData({...formData, kleiderart: e.target.value})}
@@ -189,10 +194,11 @@ export default function SpendenFormular() {
         </div>
 
         {/* Krisengebiet */}
-        <div>
-          <label className="block text-sm font-medium mb-2 text-[#3D405B]">Krisengebiet</label>
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-[#3D405B]">Krisengebiet</label>
           <select
-            className="w-full p-2 border rounded focus:ring-2 focus:ring-[#81B29A] focus:border-[#81B29A]
+            className="w-full min-h-[44px] sm:min-h-[36px] p-2 border rounded-lg
+                     focus:ring-2 focus:ring-[#81B29A] focus:border-[#81B29A]
                      bg-white text-[#3D405B]"
             value={formData.krisengebiet}
             onChange={(e) => setFormData({...formData, krisengebiet: e.target.value})}
@@ -206,10 +212,11 @@ export default function SpendenFormular() {
 
         <button
           type="submit"
-          className="w-full bg-[#81B29A] text-white py-3 px-4 rounded-lg 
+          className="w-full min-h-[44px] bg-[#81B29A] text-white py-3 px-4 rounded-lg 
                    hover:bg-[#81B29A]/90 transition-all duration-200 
                    transform hover:scale-105 font-semibold text-lg 
-                   shadow-md hover:shadow-xl"
+                   shadow-md hover:shadow-xl
+                   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#81B29A]"
         >
           Spende registrieren
         </button>
