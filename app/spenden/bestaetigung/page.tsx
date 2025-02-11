@@ -7,7 +7,7 @@ export default function Bestaetigung() {
   const datum = new Date(searchParams.get('datum') || '');
 
   return (
-    <div className="max-w-2xl mx-auto py-8 sm:py-12 px-4">
+    <div className="max-w-2xl mx-auto py-8 sm:py-12 px-4 mt-16 sm:mt-20">
       <div className="bg-white/90 p-8 rounded-lg shadow-lg border border-[#81B29A]/20">
         <div className="text-center mb-8">
           <div className="w-16 h-16 bg-[#81B29A]/20 rounded-full flex items-center justify-center mx-auto mb-4">

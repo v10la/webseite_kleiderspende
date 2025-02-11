@@ -46,19 +46,18 @@ export default function SpendenFormular() {
       }
     }
 
-    // Hier später: API-Call zum Speichern der Daten
-    
-    // Weiterleitung zur Bestätigungsseite mit allen Daten
+    // Alle Formulardaten plus Zeitstempel in URL-Parameter umwandeln
     const queryParams = new URLSearchParams({
       ...formData,
       datum: new Date().toISOString()
     }).toString();
     
+    // Navigation zur Bestätigungsseite mit den Daten als URL-Parameter
     router.push(`/spenden/bestaetigung?${queryParams}`);
   };
 
   return (
-    <div className="max-w-2xl mx-auto py-8 sm:py-12 px-4">
+    <div className="max-w-2xl mx-auto py-8 sm:py-12 px-4 mt-16 sm:mt-20">
       <h1 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center text-[#3D405B]">
         Kleiderspende Registrierung
       </h1>
@@ -110,27 +109,25 @@ export default function SpendenFormular() {
         <div className="space-y-2">
           <label className="block text-sm font-medium mb-2 text-[#3D405B]">Art der Übergabe</label>
           <div className="flex flex-col sm:flex-row sm:space-x-6 space-y-4 sm:space-y-0">
-            <label className="flex-1 flex items-center p-4 border rounded-lg hover:bg-[#81B29A]/10 cursor-pointer transition-colors">
+            <label className="flex-1 flex items-center p-4 border rounded-lg hover:bg-[#81B29A]/10 cursor-pointer">
               <input
                 type="radio"
                 name="uebergabeart"
                 value="geschaeftsstelle"
                 checked={formData.uebergabeart === 'geschaeftsstelle'}
                 onChange={(e) => setFormData({...formData, uebergabeart: e.target.value})}
-                className="mr-2 text-[#81B29A] focus:ring-[#81B29A]"
               />
-              <span className="text-[#3D405B]">Übergabe an der Geschäftsstelle</span>
+              <span>Übergabe an der Geschäftsstelle</span>
             </label>
-            <label className="flex-1 flex items-center p-4 border rounded-lg hover:bg-[#81B29A]/10 cursor-pointer transition-colors">
+            <label className="flex-1 flex items-center p-4 border rounded-lg hover:bg-[#81B29A]/10 cursor-pointer">
               <input
                 type="radio"
                 name="uebergabeart"
                 value="abholung"
                 checked={formData.uebergabeart === 'abholung'}
                 onChange={(e) => setFormData({...formData, uebergabeart: e.target.value})}
-                className="mr-2 text-[#81B29A] focus:ring-[#81B29A]"
               />
-              <span className="text-[#3D405B]">Abholung</span>
+              <span>Abholung</span>
             </label>
           </div>
         </div>
@@ -141,9 +138,7 @@ export default function SpendenFormular() {
             <div className="space-y-2">
               <label className="block text-sm font-medium text-[#3D405B]">Abholadresse</label>
               <textarea
-                className="w-full min-h-[88px] p-2 border rounded-lg
-                         focus:ring-2 focus:ring-[#81B29A] focus:border-[#81B29A]
-                         bg-white text-[#3D405B]"
+                className="w-full min-h-[88px] p-2 border rounded-lg"
                 value={formData.adresse}
                 onChange={(e) => setFormData({...formData, adresse: e.target.value})}
                 required
@@ -215,8 +210,7 @@ export default function SpendenFormular() {
           className="w-full min-h-[44px] bg-[#81B29A] text-white py-3 px-4 rounded-lg 
                    hover:bg-[#81B29A]/90 transition-all duration-200 
                    transform hover:scale-105 font-semibold text-lg 
-                   shadow-md hover:shadow-xl
-                   focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#81B29A]"
+                   shadow-md hover:shadow-xl"
         >
           Spende registrieren
         </button>
